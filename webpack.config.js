@@ -19,7 +19,10 @@ new webpack.ProvidePlugin({
 	$ : "jquery",
 	jQuery : "jquery",
 	"window.jQuery" : "jquery",
-	moment : "moment"
+	moment : "moment",
+	_ : 'lodash',
+	Backbone : 'backbone',
+	Marionette : 'backbone.marionette'
 }),
 // CSS文件放置在CSS目录
 new ExtractTextPlugin("./assets/css/[name].css") ];
@@ -35,7 +38,8 @@ var globalEntrys = function(entrys) {
 
 	entrys['bootstrap'] = [ 'bootstrap-webpack!./bootstrap.config.js' ];
 
-	entrys['backbone'] = [ 'backbone' ];
+	entrys['backbone'] = [ 'lodash', 'backbone', 'backbone.marionette',
+			'backbone-query-parameters', 'backbone.radio', 'backbone.select' ];
 
 	plugins.push(new CommonsChunkPlugin({// 注意顺序
 		name : [ 'backbone', 'bootstrap', 'moment', 'jquery' ],
