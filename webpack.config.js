@@ -41,8 +41,9 @@ var globalEntrys = function(entrys) {
 	entrys['backbone'] = [ 'lodash', 'backbone' ];
 
 	entrys['backbone-platform'] = [ 'backbone.marionette',
-			'backbone-query-parameters', 'backbone.radio', 'backbone.select',
-			'backbone-validation' ];
+			'backbone-query-parameters', 'backbone-localstorage',
+			'backbone.service', 'backbone.routefilter', 'backbone.radio',
+			'backbone.select', 'backbone-validation' ];
 
 	plugins.push(new CommonsChunkPlugin({// 注意顺序
 		name : [ 'backbone-platform', 'backbone', 'bootstrap', 'moment',
