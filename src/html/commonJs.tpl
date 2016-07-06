@@ -6,6 +6,8 @@
 <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
 <!-- Backbone依赖 -->
 <script type="text/javascript" src="/assets/js/backbone.js"></script>
+<!-- Backbone依赖 -->
+<script type="text/javascript" src="/assets/js/backbone-platform.js"></script>
 <!-- 其他通用插件依赖 -->
 <script type="text/javascript" src="/assets/js/plugins.js"></script>
 <!-- 项目需要依赖 -->

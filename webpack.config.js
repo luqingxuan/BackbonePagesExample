@@ -38,11 +38,15 @@ var globalEntrys = function(entrys) {
 
 	entrys['bootstrap'] = [ 'bootstrap-webpack!./bootstrap.config.js' ];
 
-	entrys['backbone'] = [ 'lodash', 'backbone', 'backbone.marionette',
-			'backbone-query-parameters', 'backbone.radio', 'backbone.select' ];
+	entrys['backbone'] = [ 'lodash', 'backbone' ];
+
+	entrys['backbone-platform'] = [ 'backbone.marionette',
+			'backbone-query-parameters', 'backbone.radio', 'backbone.select',
+			'backbone-validation' ];
 
 	plugins.push(new CommonsChunkPlugin({// 注意顺序
-		name : [ 'backbone', 'bootstrap', 'moment', 'jquery' ],
+		name : [ 'backbone-platform', 'backbone', 'bootstrap', 'moment',
+				'jquery' ],
 		minChunks : Infinity
 	}));
 
