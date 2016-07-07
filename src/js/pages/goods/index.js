@@ -55,6 +55,10 @@ App.on("start", function() {
 	});
 });
 
+$(function(){
+	App.start();
+});
+
 $(function() {
 	// 鼠标操作跳转
 	$(document.body).on('click', 'a.route', function(e) {
@@ -66,8 +70,4 @@ $(function() {
 
 		return false;
 	});
-});
-
-$(function(){
-	App.start();
 });
