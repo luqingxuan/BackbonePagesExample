@@ -11,54 +11,57 @@ App.RootView = Marionette.LayoutView.extend({
 	}
 });
 
-App.Router = Marionette.AppRouter.extend({
-	appRoutes : {
+App.Router = Backbone.Router.extend({
+	initialize(options={}){
+		this.rootView=options.rootView;
+	},
+	routes : {
 		'' : 'index',
 		'about' : 'about'
-	}
-});
-
-App.Controller = Marionette.Controller.extend({
-	index : function() {
-		App.IndexView = Marionette.ItemView.extend({
-			tagName : 'h1',
-			template : _.template('Hello Marionette<a href="about">about</a>')
-		});
-
-		var view = new App.IndexView();
-
-		App.rootView.getRegion('content').show(view);
 	},
-	about : function() {
-		App.AboutView = Marionette.ItemView.extend({
+	before : function(route, params) {
+
+	},
+	after : function(route, params) {
+
+	},
+	index : function(route, params) {
+		var IndexView = Marionette.ItemView.extend({
 			tagName : 'h1',
-			template : _.template('About Marionette<a href="">index</a>')
+			template : _
+					.template('Hello Marionette<a href="about?a=5" class="route">about</a>')
 		});
 
-		var view = new App.AboutView();
+		var view = new IndexView();
+		this.rootView.getRegion('content').show(view);
+	},
+	about : function(route, params) {
+		var AboutView = Marionette.ItemView.extend({
+			tagName : 'h1',
+			template : _.template('About Marionette<a href="/" class="route">index</a>')
+		});
 
-		App.rootView.getRegion('content').show(view);
+		var view = new AboutView();
+		this.rootView.getRegion('content').show(view);
 	}
 });
 
 App.on("start", function() {
+	this.rootView = new this.RootView();
 
-	App.rootView = new App.RootView();
-
-	App.controller = new App.Controller();
-
-	App.router = new App.Router({
-		controller : App.controller
+	this.router = new this.Router({
+		rootView : this.rootView
 	});
 
 	Backbone.history.start({
-		pushState : true,
-		root : ''
+		root : '',
+		pushState : true
 	});
 });
 
 $(function() {
-	$(document.body).on('click', 'a', function(e) {
+	
+	$(document.body).on('click', 'a.route', function(e) {
 		e.preventDefault();
 		App.router.navigate($(this).attr('href'), {
 			trigger : true
