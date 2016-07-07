@@ -49,7 +49,7 @@ App.on("start", function() {
 	this.rootView = new this.RootView();
 	this.router=new this.Router({rootView:this.rootView});
 	Backbone.history.start({
-		root : 'goods/index.html',
+		root : location.pathname.replace(/^\//,''),
 		pushState:false,
 		hashChange : true
 	});
