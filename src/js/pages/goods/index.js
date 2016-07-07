@@ -62,9 +62,15 @@ $(function(){
 $(function() {
 	// 鼠标操作跳转
 	$(document.body).on('click', 'a.route', function(e) {
-		App.router.navigate($(this).data('href'), {
-			trigger : true
-		});
+		var href=$(this).data('href');
+		
+		// 用定时器来做，防止切换太快
+		App._route_timer_ && clearTimeout(App._route_timer_);
+		App._route_timer_=setTimeout(function(){
+			App.router.navigate(href, {
+				trigger : true
+			});
+		},0);
 		
 		return false;
 	});
