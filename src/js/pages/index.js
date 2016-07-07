@@ -49,7 +49,8 @@ App.on("start", function() {
 	this.router=new this.Router({rootView:this.rootView});
 	Backbone.history.start({
 		root : '',
-		pushState : true
+		pushstate:false,
+		hashchange : true
 	});
 });
 
