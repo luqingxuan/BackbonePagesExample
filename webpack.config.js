@@ -42,8 +42,8 @@ var globalEntrys = function(entrys) {
 
 	entrys['backbone-platform'] = [ 'backbone.routefilter',
 			'backbone-query-parameters', 'backbone.marionette',
-			'backbone.service', 'backbone-localstorage', 'backbone.radio',
-			'backbone.select', 'backbone-validation' ];
+			'backbone.localstorage', 'backbone.storage', 'backbone.service',
+			'backbone.radio', 'backbone.select', 'backbone-validation' ];
 
 	plugins.push(new CommonsChunkPlugin({// 注意顺序
 		name : [ 'backbone-platform', 'backbone', 'bootstrap', 'moment',

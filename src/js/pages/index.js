@@ -17,9 +17,11 @@ App.Router = Backbone.Router.extend({
 	},
 	routes : {
 		'' : 'index',
+		'index':'index',
 		'about' : 'about'
 	},
 	before : function(route='', params={}) {
+		console.log(route)
 	},
 	after : function(route='', params={}) {
 	},
@@ -27,7 +29,7 @@ App.Router = Backbone.Router.extend({
 		var IndexView = Marionette.ItemView.extend({
 			tagName : 'h1',
 			template : _
-					.template('Hello Marionette<a href="about?a=5" class="route">about</a>')
+					.template('Hello Marionette<a data-href="about?a=5" href="javascript:void(0);" class="route">about</a>')
 		});
 
 		var view = new IndexView();
@@ -36,7 +38,7 @@ App.Router = Backbone.Router.extend({
 	about : function(params={}) {
 		var AboutView = Marionette.ItemView.extend({
 			tagName : 'h1',
-			template : _.template('About Marionette<a href="/" class="route">index</a>')
+			template : _.template('About Marionette<a data-href="index" href="javascript:void(0);" class="route">index</a>')
 		});
 
 		var view = new AboutView();
@@ -49,8 +51,8 @@ App.on("start", function() {
 	this.router=new this.Router({rootView:this.rootView});
 	Backbone.history.start({
 		root : '',
-		pushstate:false,
-		hashchange : true
+		pushState:false,
+		hashChange : true
 	});
 });
 
@@ -61,9 +63,10 @@ $(function(){
 $(function() {
 	// 鼠标操作跳转
 	$(document.body).on('click', 'a.route', function(e) {
-		e.preventDefault();
-		App.router.navigate($(this).attr('href'), {
+		App.router.navigate($(this).data('href'), {
 			trigger : true
 		});
+		
+		return false;
 	});
 });

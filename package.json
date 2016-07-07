@@ -30,6 +30,7 @@
     "backbone.routefilter": "^1.0.0",
     "backbone.select": "^1.5.4",
     "backbone.service": "^0.5.2",
+    "backbone.storage": "^0.2.1",
     "bootstrap": "^3.3.6",
     "bootstrap-webpack": "0.0.5",
     "browser-sync": "^2.12.10",
