@@ -36,8 +36,6 @@ var globalEntrys = function(entrys) {
 
 	entrys['moment'] = [ 'moment' ];
 
-	entrys['bootstrap'] = [ 'bootstrap-webpack!./bootstrap.config.js' ];
-
 	entrys['backbone'] = [ 'lodash', 'backbone' ];
 
 	entrys['backbone-platform'] = [ 'backbone.routefilter',
@@ -46,8 +44,7 @@ var globalEntrys = function(entrys) {
 			'backbone-validation' ];
 
 	plugins.push(new CommonsChunkPlugin({// 注意顺序
-		name : [ 'backbone-platform', 'backbone', 'bootstrap', 'moment',
-				'jquery' ],
+		name : [ 'backbone-platform', 'backbone', 'moment', 'jquery' ],
 		minChunks : Infinity
 	}));
 
