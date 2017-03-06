@@ -1,21 +1,19 @@
 require('./gulpfile-tasks.js');
 
+// to remote web server
+const publishServerPath = './dist';
+
 const extend = require('extend');
 
 const gulp = require('gulp');
 
 const gulpSequence = require('gulp-sequence');
 
-const browserSync = require('browser-sync');
-
 const webpack = require('webpack');
 
 const WebpackDevServer = require('webpack-dev-server');
 
 const webpackReleaseConfig = require('./webpack.release.config.js');
-
-// to remote web server
-const publishServerPath = './dist';
 
 // 正式打包压缩文件
 gulp.task('webpack-build', function(callback) {

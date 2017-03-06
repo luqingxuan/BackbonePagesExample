@@ -3,3 +3,7 @@
 body {
 	background: url("../../images/alert.png") no-repeat;
 }
+
+h1 {
+    color: green;
+}
