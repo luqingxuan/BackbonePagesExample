@@ -1,5 +1,17 @@
+require('css/polyfill/bootstrap.css');
+
+require('css/polyfill/jquery.css');
+
+require('css/polyfill/layer.css');
+
+//  Page CSS
 require('css/pages/index.css');
-require('enhance/index.js');
+
+import $ from 'jquery';
+
+import Backbone from 'backbone';
+
+import Marionette from 'backbone.marionette';
 
 window.App = new Marionette.Application();
 
