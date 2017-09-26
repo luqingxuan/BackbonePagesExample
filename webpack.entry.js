@@ -49,7 +49,7 @@ glob.sync(projectPath + pagePath + '**/*.js').forEach(function(filePath) {
 
 // ------------------------------------------------------------------------------
 
-// vue
+// backbone
 var backboneEntries = [];
 
 backboneEntries.push({
