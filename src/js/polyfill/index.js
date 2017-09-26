@@ -1,1 +1,1 @@
-require('./babel-ployfill.js');
+require('./babel-polyfill.js');
